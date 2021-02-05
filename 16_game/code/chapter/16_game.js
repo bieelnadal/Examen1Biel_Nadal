@@ -70,7 +70,7 @@ var Player = class Player {
   }
 }
 
-Player.prototype.size = new Vec(0.8, 1.5);
+Player.prototype.size = new Vec(1.0, 1.5);
 
 var Lava = class Lava {
   constructor(pos, speed, reset) {
@@ -110,7 +110,7 @@ var Coin = class Coin {
   }
 }
 
-Coin.prototype.size = new Vec(0.6, 0.6);
+Coin.prototype.size = new Vec(1.2,1.2);
 
 var levelChars = {
   ".": "empty", "#": "wall", "+": "lava",

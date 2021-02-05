@@ -3,15 +3,15 @@
                  table-layout: fixed;
                  border-spacing: 0;   }
 .background td { padding: 0;          }
-.lava          { background: rgb(255, 100, 100); }
-.wall          { background: rgb(94, 72, 32);   }
+.lava          { background-image: url(../../photos/lava.png); }
+.wall          { background-image: url(../../photos/block.png);   }
 
 .actor  { position: absolute;  }
 .coin {
-  background: rgb(233, 230, 59);
   position: absolute;
+  background-image: url(../../photos/retro_coin.png);
 }
-.player { background: rgb(64, 64, 64); }
+.player { background-image: url(../../photos/character.png); }
 
 @media screen and (min-width: 1024px) {
   img {
