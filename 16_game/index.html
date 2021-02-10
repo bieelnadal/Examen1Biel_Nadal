@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <script src="code/chapter/16_game.js"></script>
 <script src="code/levels.js"></script>
+<link rel="icon" type="image/png" href="../photos/pixil-frame-0.png"/>
 <title>NL</title>
 <link rel="stylesheet" href="css/game.css" />
 
 <body>
+  <div class="clearfix" id="contentBox">
+    <div id="first" class="buttonBox">
+      <button>Esc = Pause</button>
+      <div class="border"></div>
+      <div class="border"></div>
+    </div>
+    <div class="clearfix" id="contentBox">
+      <div id="first" class="buttonBox">
+        <button>← = Right</button>
+        <div class="border"></div>
+        <div class="border"></div>
+      </div>
+      <div id="first" class="buttonBox">
+            <button>↑ = Jump</button>
+            <div class="border"></div>
+            <div class="border"></div>
+          </div>
+      <div class="clearfix" id="contentBox">
+        <div id="first" class="buttonBox">
+          <button>→ = Left</button>
+          <div class="border"></div>
+          <div class="border"></div>
+        </div>
+        <div class="clearfix" id="contentBox">
   <script>
     runGame(GAME_LEVELS, DOMDisplay);
   </script>

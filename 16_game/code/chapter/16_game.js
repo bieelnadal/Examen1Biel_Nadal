@@ -332,28 +332,22 @@ function runAnimation(frameFunc) {
   requestAnimationFrame(frame);
 }
 
-
-
-
-
-
-
-
-
-
 function runLevel(level, Display) {
   let display = new Display(document.body, level);
   let state = State.start(level);
   let ending = 1;
   let running = "yes";
-
+ 
   return new Promise(resolve => {
+    //Funcion para la tecla "Esc"
     function escHandler(event) {
       if (event.key != "Escape") return;
       event.preventDefault();
+     //Si el juego no esta en  funcionamiento y la tecla "Esc" es pulsada
       if (running == "no") {
         running = "yes";
         runAnimation(frame);
+       //Si el juego esta en funcionamiento y la tecla "Esc" es pulsada se pausa el juego
       } else if (running == "yes") {
         running = "pausing";
       } else {
@@ -387,22 +381,28 @@ function runLevel(level, Display) {
     runAnimation(frame);
   });
 }
- 
-
-
 async function runGame(plans, Display) {
-  let lives = 5;
+  //Crear la variable "vidas" y inicializarla a 5
+  let lives = 3;
+  //crear un bucle en el que transcurra el juego mientras el nivel en el que estemos sea mas pequeño 
     for (let level = 0; level < plans.length && lives > 0;) {
       console.log(`Level ${level + 1}, lives: ${lives}`);
       let status = await runLevel(new Level(plans[level]),
                                   Display);
+      //Si el usuario supera el nivel se suma +1
       if (status == "won") level++;
       else lives--;
     }
+    //Si se consigue superar el juego(todos los niveles) muestra por consola "Has ganado" (Para entrar a la consola, pulsar F12 y darle 'click' a la pestaña consola)
     if (lives > 0) {
       console.log("Has ganado");
+
+    //En canvio, si las vidas llegan a 0 mostrar "Has perdido" en consola 
     } else {
       console.log("Has perdido");
+      runGame(plans, Display);
+      
+      
     }
   }
   runGame(GAME_LEVELS, DOMDisplay);
