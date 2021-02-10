@@ -1,0 +1,54 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
+
+body{
+    background-image: url(https://opengameart.org/sites/default/files/Starry%20night%20Image.png);
+    height: 99%;
+    width: 99%;
+
+   
+}
+h1{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    
+    
+}
+.container{
+    display: table-cell;
+    padding: 1em;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    left:500px;
+}
+p{
+    color: rgb(236, 234, 234);
+    font-family: 'Roboto', sans-serif;
+}
+@media (min-width: 450px) {
+    h1.heading {
+        font-size: 1.75em;
+    }
+    p.heading {
+        font-size: 1.75em;
+    }
+}
+
+@media (min-width: 760px) {
+    h1.heading {
+        font-size: 3.25em;
+    }
+    p.heading {
+        font-size: 3.25em;
+    }
+}
+
+@media (min-width: 900px) {
+    h1.heading {
+        font-size: 4.25em;
+        margin: 0 0 0.5em;
+    }
+    p.heading {
+        font-size: 4.25em;
+    }
+}

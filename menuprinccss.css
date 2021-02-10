@@ -15,12 +15,12 @@ html,
 body {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    height: 100%;
-    width: 100%;
+    height: 99%;
+    width: 99%;
 }
 
 body {
-    background: #8797AF;
+    background-image: url(https://opengameart.org/sites/default/files/Starry%20night%20Image.png);
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
 }
@@ -39,7 +39,7 @@ body {
 }
 
 h1.heading {
-    color: #fff;
+    color: #215042;
     font-size: 1.25em;
     font-weight: 900;
     margin: 0 0 0.5em;
@@ -65,7 +65,7 @@ h1.heading {
 }
 
 .buttonss {
-    color: #A7ADC6;
+    color: #215042;
     cursor: pointer;
     display: block;
     font-size: 16px;
@@ -100,7 +100,7 @@ h1.heading {
 }
 
 .buttonss {
-    background: #56667A;
+    background: #989fa8;
     font-weight: 100;
 }
 
@@ -114,13 +114,13 @@ h1.heading {
 
 .buttonss rect {
     fill: none;
-    stroke: #fff;
+    stroke: rgb(0, 0, 0);
     stroke-width: 1;
     stroke-dasharray: 422, 0;
 }
 
 .buttonss:hover {
-    background: rgba(225, 51, 45, 0);
+    background: rgba(179, 166, 49, 0);
     letter-spacing: 1px;
     font-weight: 900;
 }

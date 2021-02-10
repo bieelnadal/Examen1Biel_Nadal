@@ -11,7 +11,7 @@
   position: absolute;
   background-image: url(../../photos/retro_coin.png);
 }
-.player { background-image: url(../../photos/character.png);
+.player { background-image: url(../../photos/character48.png);
  }
 
 @media screen and (min-width: 1024px) {
@@ -28,7 +28,7 @@
 }
 
 .lost .player {
-  background: rgb(160, 64, 64);
+  background-image: url(../../photos/burncharacter48.png);
 }
 .won .player {
   box-shadow: -4px -7px 8px white, 4px -7px 8px white;
