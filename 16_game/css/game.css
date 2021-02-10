@@ -1,5 +1,5 @@
 .background    { background: rgb(52, 166, 251);
-  background-image: url(https://opengameart.org/sites/default/files/Starry%20night%20Image.png);
+  background-image: url(../../photos/fondo.png);
                  table-layout: fixed;
                  border-spacing: 0;   }
 .background td { padding: 0;          }
@@ -18,6 +18,9 @@
   img {
     width: 90px;
   }
+}
+.monster{
+  background: purple;
 }
 
 .game {

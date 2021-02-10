@@ -72,6 +72,22 @@ var Player = class Player {
 
 Player.prototype.size = new Vec(1.0, 1.5);
 
+//Clase monstruo
+var Monster = class Monster{
+  constructor(pos, speed, reset) {
+  }
+
+  get type() { return "monster"; }
+
+  static create(pos, ch){
+    if (ch=="m"){
+      return new monster(pos, new Vec(0, -1));
+    }
+  }
+
+}
+
+Monster.prototype.size = new Vec(1.2, 2);
 var Lava = class Lava {
   constructor(pos, speed, reset) {
     this.pos = pos;
@@ -113,9 +129,11 @@ var Coin = class Coin {
 Coin.prototype.size = new Vec(1.2,1.2);
 
 var levelChars = {
-  ".": "empty", "#": "wall", "+": "lava",
+  ".": "empty", "#": "wall", "+": "lava", "m": "monster",
   "@": Player, "o": Coin,
-  "=": Lava, "|": Lava, "v": Lava
+  "=": Lava, "|": Lava, "v": Lava,
+  //Añadir el monstruo
+  "m": Monster,
 };
 
 var simpleLevel = new Level(simpleLevelPlan);
@@ -234,6 +252,27 @@ State.prototype.update = function(time, keys) {
   return newState;
 };
 
+//Monster collide pierde
+State.prototype.update = function(time, keys) {
+  let actors = this.actors
+    .map(actor => actor.update(time, this, keys));
+  let newState = new State(this.level, actors, this.status);
+
+  if (newState.status != "playing") return newState;
+
+  let player = newState.player;
+  if (this.level.touches(player.pos, player.size, "monster")) {
+    return new State(this.level, actors, "lost");
+  }
+
+  for (let actor of actors) {
+    if (actor != player && overlap(actor, player)) {
+      newState = actor.collide(newState);
+    }
+  }
+  return newState;
+};
+
 function overlap(actor1, actor2) {
   return actor1.pos.x + actor1.size.x > actor2.pos.x &&
          actor1.pos.x < actor2.pos.x + actor2.size.x &&
@@ -244,7 +283,10 @@ function overlap(actor1, actor2) {
 Lava.prototype.collide = function(state) {
   return new State(state.level, state.actors, "lost");
 };
-
+//Monster choque jugador
+Monster.prototype.collide = function(state) {
+  return new State(state.level, state.actors, "lost");
+};
 Coin.prototype.collide = function(state) {
   let filtered = state.actors.filter(a => a != this);
   let status = state.status;
@@ -260,6 +302,18 @@ Lava.prototype.update = function(time, state) {
     return new Lava(this.reset, this.speed, this.reset);
   } else {
     return new Lava(this.pos, this.speed.times(-1));
+  }
+};
+
+//Monster muro
+Monster.prototype.update = function(time, state) {
+  let newPos = this.pos.plus(this.speed.times(time));
+  if (!state.level.touches(newPos, this.size, "wall")) {
+    return new Monster(newPos, this.speed, this.reset);
+  } else if (this.reset) {
+    return new Monster(this.reset, this.speed, this.reset);
+  } else {
+    return new Monster(this.pos, this.speed.times(-1));
   }
 };
 
