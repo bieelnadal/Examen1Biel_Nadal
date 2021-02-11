@@ -15,6 +15,6 @@ Finalmente los archivos .css son los utilizados para el diseño de la página, �
 <link rel="stylesheet" href="css/game.css" />
 ```
 
-##Author
+## Author
 
 No creado, pero modificado por Biel Nadal.
