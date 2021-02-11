@@ -1,3 +1,4 @@
+
 var simpleLevelPlan = `
 ......................
 ..#................#..
@@ -390,9 +391,49 @@ async function runGame(plans, Display) {
       let status = await runLevel(new Level(plans[level]),
                                   Display);
       //Si el usuario supera el nivel se suma +1
-      if (status == "won") level++;
-      else lives--;
+      if (status == "won"){
+        level++;
+        Swal.fire({
+          position: 'top-mid',
+          icon: 'success',
+          title: '¡Has pasado al siguiente nivel!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      } 
+      
+      else {
+        lives--;
+      
+      if(lives == 0){
+        Swal.fire({
+          title: '¡Has perdido!',
+          text: "Te has quedado sin vidas",
+          icon: 'error',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#3085d6',
+          confirmButtonText: 'Reiniciar partida',
+          cancelButtonText: 'Volver al menú'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            
+           
+          }
+          else{
+            window.location.href = "../index.html";
+          }
+        })
+      }else{
+        Swal.fire({
+          title: '¡Perdiste!',
+          text: lives+' Vidas restantes',
+          icon: 'warning',
+          confirmButtonText: 'Continuar'
+        })
+      }
     }
+  }
     //Si se consigue superar el juego(todos los niveles) muestra por consola "Has ganado" (Para entrar a la consola, pulsar F12 y darle 'click' a la pestaña consola)
     if (lives > 0) {
       console.log("Has ganado");

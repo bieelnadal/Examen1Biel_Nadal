@@ -4,7 +4,7 @@
                  border-spacing: 0;   }
 .background td { padding: 0;          }
 .lava          { background-image: url(../../photos/lava.png); }
-.wall          { background-image: url(../../photos/block.png);   }
+.wall          { background-image: url(../../photos/obsidian.png);   }
 
 .actor  { position: absolute;  }
 .coin {
@@ -38,7 +38,6 @@
   border-radius: 50%;
 }
 
-
 html{
   background-color:#476aa0;
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -68,17 +67,11 @@ h1{
   border-bottom:1px solid;
 }
 
-#contentBox{
-  width:90%;
-  margin:0 auto;
-}
-
 .buttonBox{
   position:relative;
   float:left;
   width:15%;
 }
-
 
 button{
   width:100%;
@@ -94,31 +87,10 @@ button{
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
-
-/* FIRST BUTTON */
-
 .border{
     position:absolute;
     background:none;
     transition:all .5s ease-in-out;
-}
-
-#first>.border:nth-of-type(1){
-  top:0;
-  left:0;
-  border-left:1px solid white;
-  border-top:1px solid white;
-  width:30px;
-  height:30px;
-}
-
-#first>.border:nth-of-type(2){
-  bottom:0;
-  right:0;
-  border-right:1px solid white;
-  border-bottom:1px solid white;
-  width:30px;
-  height:30px;
 }
 
 #first:hover .border{
