@@ -14,6 +14,9 @@ Finalmente los archivos .css son los utilizados para el diseño de la página, �
 ```
 <link rel="stylesheet" href="css/game.css" />
 ```
+```
+<script src="code/levels.js"></script>
+```
 
 ## Author
 
