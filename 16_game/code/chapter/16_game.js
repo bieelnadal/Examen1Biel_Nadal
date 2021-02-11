@@ -244,7 +244,7 @@ function overlap(actor1, actor2) {
 }
 
 Lava.prototype.collide = function(state) {
-  return new State(state.level, state.actors, "lost");
+  return new State( state.level, state.actors, "lost" );
 };
 Coin.prototype.collide = function(state) {
   let filtered = state.actors.filter(a => a != this);
